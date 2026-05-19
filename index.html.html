@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Candidate Interview Resource Library — Emapta LATAM</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --green-dark: #085041;
+    --green-mid: #1D9E75;
+    --green-light: #E1F5EE;
+    --green-accent: #5DCAA5;
+    --ink: #1a1a1a;
+    --ink-muted: #555;
+    --ink-faint: #888;
+    --surface: #f7f7f5;
+    --white: #ffffff;
+    --border: #e4e4e0;
+    --red-light: #FCEBEB;
+    --red-mid: #E24B4A;
+    --red-dark: #791F1F;
+    --amber-light: #FAEEDA;
+    --amber-mid: #BA7517;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--surface);
+    color: var(--ink);
+    line-height: 1.6;
+    font-size: 15px;
+  }
+
+  /* NAV */
+  nav {
+    background: var(--green-dark);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-brand { display: flex; align-items: center; gap: 10px; }
+  .nav-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    color: #fff;
+    letter-spacing: 0.01em;
+  }
+  .nav-tag {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--green-accent);
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+  .nav-links { display: flex; gap: 1.5rem; }
+  .nav-links a {
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: #fff; }
+
+  /* HERO */
+  .hero {
+    background: var(--green-dark);
+    color: #fff;
+    padding: 3.5rem 2rem 3rem;
+    text-align: center;
+  }
+  .hero-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--green-accent);
+    margin-bottom: 0.75rem;
+  }
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(28px, 5vw, 42px);
+    line-height: 1.15;
+    margin-bottom: 1rem;
+    color: #fff;
+  }
+  .hero p {
+    font-size: 15px;
+    color: rgba(255,255,255,0.7);
+    max-width: 520px;
+    margin: 0 auto 2rem;
+  }
+  .hero-pills { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+  .pill {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 100px;
+    padding: 6px 14px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.8);
+    display: flex; align-items: center; gap: 6px;
+  }
+  .pill svg { width: 13px; height: 13px; stroke: var(--green-accent); }
+
+  /* LAYOUT */
+  .page { max-width: 860px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+
+  /* SECTION HEADER */
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1.25rem;
+  }
+  .section-num {
+    width: 28px; height: 28px;
+    background: var(--green-dark);
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 600;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    color: var(--ink);
+  }
+  .section-sub {
+    font-size: 13px;
+    color: var(--ink-muted);
+    margin-top: 2px;
+  }
+
+  /* DIVIDER */
+  .section-block { margin-bottom: 3.5rem; }
+  .divider { border: none; border-top: 1px solid var(--border); margin: 3rem 0; }
+
+  /* CHECKLIST CARDS */
+  .checklist { display: flex; flex-direction: column; gap: 10px; }
+  .check-item {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .check-item.warn { border-left: 3px solid var(--red-mid); }
+  .check-item.ok { border-left: 3px solid var(--green-mid); }
+  .check-icon {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .check-icon.green { background: var(--green-light); }
+  .check-icon.red { background: var(--red-light); }
+  .check-icon svg { width: 16px; height: 16px; }
+  .check-body { flex: 1; }
+  .check-title { font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+  .check-desc { font-size: 13px; color: var(--ink-muted); line-height: 1.6; }
+  .check-desc strong { color: var(--ink); font-weight: 600; }
+  .tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 100px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+  .tag-required { background: var(--red-light); color: var(--red-dark); }
+  .tag-important { background: var(--amber-light); color: var(--amber-mid); }
+
+  /* STAR METHOD */
+  .star-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin: 1.5rem 0;
+  }
+  .star-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .star-card::before {
+    content: attr(data-letter);
+    position: absolute;
+    top: -8px;
+    right: 10px;
+    font-family: 'DM Serif Display', serif;
+    font-size: 64px;
+    color: var(--green-light);
+    line-height: 1;
+  }
+  .star-letter {
+    font-family: 'DM Serif Display', serif;
+    font-size: 32px;
+    color: var(--green-mid);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .star-word { font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+  .star-def { font-size: 12px; color: var(--ink-muted); line-height: 1.5; }
+
+  .star-example {
+    background: var(--green-light);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+  }
+  .star-example-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--green-dark);
+    margin-bottom: 1rem;
+  }
+  .star-example-row { margin-bottom: 0.75rem; display: flex; gap: 10px; }
+  .star-example-row:last-child { margin-bottom: 0; }
+  .star-badge {
+    width: 20px; height: 20px;
+    background: var(--green-mid);
+    color: #fff;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .star-example-text { font-size: 13px; color: var(--green-dark); line-height: 1.55; }
+
+  .tip-box {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--green-mid);
+    border-radius: 0 12px 12px 0;
+    padding: 1rem 1.25rem;
+    margin-top: 1.25rem;
+    font-size: 13px;
+    color: var(--ink-muted);
+    line-height: 1.6;
+  }
+  .tip-box strong { color: var(--ink); }
+
+  /* FAQ */
+  .faq-list { display: flex; flex-direction: column; gap: 0; margin-top: 0.5rem; }
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+  }
+  .faq-item:first-child { border-top: 1px solid var(--border); }
+  .faq-q {
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 1rem 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .faq-q:hover { color: var(--green-mid); }
+  .faq-chevron { width: 16px; height: 16px; stroke: var(--ink-faint); flex-shrink: 0; transition: transform 0.25s; }
+  .faq-item.open .faq-chevron { transform: rotate(180deg); }
+  .faq-a {
+    font-size: 13px;
+    color: var(--ink-muted);
+    line-height: 1.7;
+    padding-bottom: 1rem;
+    display: none;
+  }
+  .faq-item.open .faq-a { display: block; }
+
+  /* CONFIDENCE SECTION */
+  .confidence {
+    background: var(--green-dark);
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    color: #fff;
+    margin-top: 1rem;
+  }
+  .confidence-icon { font-size: 32px; margin-bottom: 0.75rem; }
+  .confidence h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 24px;
+    margin-bottom: 0.75rem;
+  }
+  .confidence p { font-size: 14px; color: rgba(255,255,255,0.7); max-width: 440px; margin: 0 auto; line-height: 1.7; }
+
+  /* FOOTER */
+  footer {
+    background: var(--white);
+    border-top: 1px solid var(--border);
+    padding: 1.5rem 2rem;
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink-faint);
+  }
+
+  @media (max-width: 600px) {
+    nav { padding: 0 1rem; }
+    .nav-links { display: none; }
+    .hero { padding: 2.5rem 1.25rem 2rem; }
+    .page { padding: 2rem 1rem 4rem; }
+    .star-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">
+    <div>
+      <div class="nav-logo">Emapta</div>
+      <div class="nav-tag">LATAM</div>
+    </div>
+  </div>
+  <div class="nav-links">
+    <a href="#checklist">Checklist</a>
+    <a href="#star">STAR Method</a>
+    <a href="#faq">FAQ</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-eyebrow">Candidate Resource Library</div>
+  <h1>Everything you need to<br>ace your interview.</h1>
+  <p>Read this before your scheduled interview. It covers what to prepare, how to answer questions, and what to expect from the process.</p>
+  <div class="hero-pills">
+    <div class="pill">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+      Interview checklist
+    </div>
+    <div class="pill">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+      STAR method
+    </div>
+    <div class="pill">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      Common FAQs
+    </div>
+  </div>
+</div>
+
+<div class="page">
+
+  <!-- SECTION 1: CHECKLIST -->
+  <div class="section-block" id="checklist">
+    <div class="section-label">
+      <div class="section-num">1</div>
+      <div>
+        <div class="section-title">Before your interview</div>
+        <div class="section-sub">Complete every item on this list. These are requirements, not suggestions.</div>
+      </div>
+    </div>
+
+    <div class="checklist">
+
+      <div class="check-item ok">
+        <div class="check-icon green">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div class="check-body">
+          <div class="check-title">Log on 5 minutes before the scheduled time <span class="tag tag-required">Required</span></div>
+          <div class="check-desc">Be at your computer and connected to the interview link <strong>5 minutes before</strong> the start time. Use those minutes to confirm your camera and microphone are working correctly. Joining late will negatively impact your evaluation.</div>
+        </div>
+      </div>
+
+      <div class="check-item ok">
+        <div class="check-icon green">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+        </div>
+        <div class="check-body">
+          <div class="check-title">Camera on — no exceptions <span class="tag tag-required">Required</span></div>
+          <div class="check-desc">This is a <strong>camera-on interview</strong>. Your video must be enabled from start to finish. If you experience a technical issue, notify the interviewer immediately via the Teams chat. Interviews will not proceed with your camera off.</div>
+        </div>
+      </div>
+
+      <div class="check-item ok">
+        <div class="check-icon green">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <div class="check-body">
+          <div class="check-title">Use a computer, not your phone <span class="tag tag-required">Required</span></div>
+          <div class="check-desc">You must take this interview from a <strong>laptop or desktop computer</strong>. The client needs to see your body language and assess your professional presence — this is not possible from a mobile phone. A phone interview will not be accepted.</div>
+        </div>
+      </div>
+
+      <div class="check-item ok">
+        <div class="check-icon green">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        </div>
+        <div class="check-body">
+          <div class="check-title">Install Microsoft Teams before the day <span class="tag tag-required">Required</span></div>
+          <div class="check-desc"><strong>Download and install the Microsoft Teams desktop app</strong> before your interview day — not on the morning of. Do not rely on the browser version. Test your audio and video inside Teams at least 24 hours in advance.</div>
+        </div>
+      </div>
+
+      <div class="check-item ok">
+        <div class="check-icon green">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div class="check-body">
+          <div class="check-title">Find a quiet, private space <span class="tag tag-required">Required</span></div>
+          <div class="check-desc">Even if you are at home, you must be in a <strong>quiet room with no interruptions</strong> for the duration of the call. Close the door. Use a desk or table with a <strong>plain, neutral background</strong> — clutter, beds, sofas, or public spaces are not appropriate. The room must be well-lit so your face is clearly visible.</div>
+        </div>
+      </div>
+
+      <div class="check-item ok">
+        <div class="check-icon green">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        </div>
+        <div class="check-body">
+          <div class="check-title">Dress in business attire <span class="tag tag-important">Important</span></div>
+          <div class="check-desc">Dress as you would for an in-person interview — <strong>business or smart casual</strong> from head to toe. Being at home is not a reason to dress casually. Pyjamas, graphic t-shirts, or loungewear are not appropriate and will be noted by the interviewer.</div>
+        </div>
+      </div>
+
+      <div class="check-item warn">
+        <div class="check-icon red">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#E24B4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
+        </div>
+        <div class="check-body">
+          <div class="check-title">Eliminate all distractions <span class="tag tag-required">Required</span></div>
+          <div class="check-desc">Before the call begins: <strong>silence your phone and put it out of reach</strong>, mute all desktop notifications, close unrelated tabs, and let people in your home know not to interrupt. During the interview, do not eat, smoke, watch anything, or hold side conversations. Your full attention must be on the interviewer.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- SECTION 2: STAR METHOD -->
+  <div class="section-block" id="star">
+    <div class="section-label">
+      <div class="section-num">2</div>
+      <div>
+        <div class="section-title">How to answer interview questions: the STAR method</div>
+        <div class="section-sub">A simple structure that makes any answer clear, compelling, and memorable.</div>
+      </div>
+    </div>
+
+    <div class="star-grid">
+      <div class="star-card" data-letter="S">
+        <div class="star-letter">S</div>
+        <div class="star-word">Situation</div>
+        <div class="star-def">Set the scene. Give just enough context for the interviewer to understand the challenge or scenario you faced.</div>
+      </div>
+      <div class="star-card" data-letter="T">
+        <div class="star-letter">T</div>
+        <div class="star-word">Task</div>
+        <div class="star-def">Describe your specific role or responsibility in that situation. What was expected of you?</div>
+      </div>
+      <div class="star-card" data-letter="A">
+        <div class="star-letter">A</div>
+        <div class="star-word">Action</div>
+        <div class="star-def">Explain exactly what <em>you</em> did — not your team, not your manager. Focus on your individual contribution and decisions.</div>
+      </div>
+      <div class="star-card" data-letter="R">
+        <div class="star-letter">R</div>
+        <div class="star-word">Result</div>
+        <div class="star-def">Share the outcome. Quantify it where possible — numbers, percentages, timeframes. What changed because of your actions?</div>
+      </div>
+    </div>
+
+    <div class="star-example">
+      <div class="star-example-label">Example answer using STAR</div>
+      <div class="star-example-row">
+        <div class="star-badge">S</div>
+        <div class="star-example-text"><strong>Situation:</strong> At my previous role, our team was managing 3 client accounts simultaneously and missed two deadlines in a single month due to poor task visibility.</div>
+      </div>
+      <div class="star-example-row">
+        <div class="star-badge">T</div>
+        <div class="star-example-text"><strong>Task:</strong> As the team lead, it was my responsibility to identify the root cause and implement a fix before the next delivery cycle.</div>
+      </div>
+      <div class="star-example-row">
+        <div class="star-badge">A</div>
+        <div class="star-example-text"><strong>Action:</strong> I introduced a shared Kanban board, set up weekly check-ins, and created a deadline alert system using our project management tool so nothing fell through the gaps.</div>
+      </div>
+      <div class="star-example-row">
+        <div class="star-badge">R</div>
+        <div class="star-example-text"><strong>Result:</strong> We delivered 100% of projects on time for the following quarter, and client satisfaction scores improved from 7.2 to 9.1 out of 10.</div>
+      </div>
+    </div>
+
+    <div class="tip-box">
+      <strong>Prepare 4–5 STAR stories before your interview.</strong> Think of situations where you solved a problem, led a team, handled conflict, met a tight deadline, or went above and beyond. These stories will cover most behavioural questions you'll be asked.
+    </div>
+
+    <div class="tip-box" style="margin-top: 10px; border-left-color: #1D9E75;">
+      <strong>Be yourself.</strong> Interviewers are not looking for a perfect script — they are looking for the real you. Speak naturally, use your own words, and share stories that genuinely reflect how you work. Authenticity is always more memorable than a rehearsed performance.
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- SECTION 3: FAQ -->
+  <div class="section-block" id="faq">
+    <div class="section-label">
+      <div class="section-num">3</div>
+      <div>
+        <div class="section-title">Frequently asked questions</div>
+        <div class="section-sub">Common questions candidates ask before their interview.</div>
+      </div>
+    </div>
+
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          How long will the interview last?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a">Most interviews run between 30 and 60 minutes. You will be notified of the expected duration when your slot is confirmed. Block the full hour in your schedule to avoid any pressure.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Who will I be speaking with?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a">You will meet directly with the client's hiring team. There may be one or two interviewers. Your Emapta contact will confirm the names and titles in advance so you can do your research beforehand.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Can I have notes with me during the interview?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a">Yes, it is acceptable to have a few brief notes nearby — for example, key achievements or questions you want to ask. However, do not read directly from a script. Interviewers notice, and it undermines your credibility. Use notes only as a light reference.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          What language will the interview be conducted in?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a">Interviews are conducted in English unless your Emapta contact specifies otherwise. This is a good opportunity to demonstrate your communication skills, so speak clearly and do not rush.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          What happens if I have a technical issue on the day?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a">Contact your Emapta recruiter immediately via WhatsApp if you experience a technical problem. Do not wait — notify us before the interview is due to start. Issues that are reported promptly can be managed. Issues discovered after the fact cannot.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Should I prepare questions to ask the interviewer?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a">Yes — absolutely. Preparing 2–3 thoughtful questions shows genuine interest in the role and the company. Ask about the team, the biggest challenges in the position, or what success looks like in the first 90 days. Avoid asking about salary or benefits at this stage unless the interviewer raises it.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          When will I hear back after the interview?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a">Your Emapta recruiter will follow up with feedback within the timeframe provided during your briefing. If you have not heard back within that window, reach out directly via WhatsApp.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CLOSING -->
+  <div class="confidence">
+    <div class="confidence-icon">★</div>
+    <h3>You earned this interview.</h3>
+    <p>The Talent Acquisition team selected you because they believe you have what it takes. Meeting these requirements protects your opportunity — and gives you the best possible chance to show the client exactly who you are. We're rooting for you.</p>
+  </div>
+
+</div>
+
+<footer>
+  © Emapta LATAM · Candidate Resource Library · For internal distribution only
+</footer>
+
+<script>
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+      btn.setAttribute('aria-expanded', !isOpen);
+    });
+  });
+</script>
+
+</body>
+</html>
